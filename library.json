@@ -1,0 +1,27 @@
+{
+    "name": "EPDIY-UIMgr",
+    "version": "0.1.0",
+    "description": "A set of ui components to be used with epidy. Can be extended to other display and touch controllers as well.",
+    "keywords": "UI,epdiy,epd47,l58",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mKenfenheuer/EPDIY-UIMgr"
+    },
+    "authors": [
+        {
+            "name": "Maximilian Kenfenheuer",
+            "email": "maximilian@mkenfenheuer.de",
+            "maintainer": true
+        }
+    ],
+    "license": "GNU GPLv3.0",
+    "homepage": "https://github.com/mKenfenheuer/EPDIY-UIMgr",
+    "dependencies": [
+        {
+            "name": "epdiy",
+            "version": "https://github.com/vroland/epdiy.git"
+        }
+    ],
+    "frameworks": "arduino",
+    "platforms": "*"
+}
