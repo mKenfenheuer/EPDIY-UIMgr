@@ -1,4 +1,5 @@
 #include "L58Touch.h"
+#include "Arduino.h"
 
 bool L58Touch::begin(gpio_num_t touch_int, TwoWire &port, uint8_t addr)
 {
@@ -15,6 +16,8 @@ bool L58Touch::begin(gpio_num_t touch_int, TwoWire &port, uint8_t addr)
     return false;
 }
 
+long l58_last_touch_event = 0;
+
 void L58Touch::loop()
 {
     uint16_t x, y, s;
@@ -29,11 +32,16 @@ void L58Touch::loop()
 
             point = rotateTouch(point);
 
-            if(handler != nullptr)
+            if (handler != nullptr)
             {
                 printf("Calling touch handler\n");
-                handler(point);
+                if (l58_last_touch_event + 50 < millis())
+                {
+                    handler(point);
+                }
             }
+
+            l58_last_touch_event = millis();
 
             while (digitalRead(CONFIG_TOUCH_INT))
             {
