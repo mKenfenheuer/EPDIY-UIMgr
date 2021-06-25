@@ -55,7 +55,7 @@ public:
 
     void drawUI(DisplayHighlevel *display) override
     {
-        Serial.printf("Drawing at: %d,%d\n", location.getX(), location.getY());
+        Serial.printf("Drawing at: %ld,%ld\n", location.getX(), location.getY());
 
         UIPoint leftCenter = UIPoint(location.getX() + 26, location.getY() + 26);
 

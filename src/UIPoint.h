@@ -6,22 +6,22 @@
 class UIPoint
 {
 private:
-    uint32_t x = 0;
-    uint32_t y = 0;
+    long x = 0;
+    long y = 0;
 
 public:
-    UIPoint(uint32_t x, uint32_t y)
+    UIPoint(long x, long y)
     {
         this->x = x;
         this->y = y;
     }
     UIPoint() {}
     ~UIPoint() {}
-    uint32_t getX()
+    long getX()
     {
         return x;
     }
-    uint32_t getY()
+    long getY()
     {
         return y;
     }

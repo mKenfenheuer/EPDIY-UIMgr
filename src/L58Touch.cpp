@@ -1,5 +1,6 @@
 #include "L58Touch.h"
 #include "Arduino.h"
+#include "TouchCalibration.h"
 
 bool L58Touch::begin(gpio_num_t touch_int, TwoWire &port, uint8_t addr)
 {
@@ -27,16 +28,19 @@ void L58Touch::loop()
         {
             getPoint(x, y, s, 0);
 
-            printf("Touch: X:%d Y:%d\n", x, y);
-            UIPoint point = UIPoint(x,y);
+            UIPoint point = UIPoint(x, y);
 
+            if (calibration != nullptr)
+                point = calibration->translatePoint(point);
+                
             point = rotateTouch(point);
 
             if (handler != nullptr)
             {
-                printf("Calling touch handler\n");
-                if (l58_last_touch_event + 50 < millis())
+                if (l58_last_touch_event + 200 < millis())
                 {
+                    printf("Touch: X:%d Y:%d\n", x, y);
+                    printf("Calling touch handler\n");
                     handler(point);
                 }
             }

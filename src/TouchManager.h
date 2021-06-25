@@ -1,6 +1,7 @@
 #ifndef _EPD_TOUCH_MANAGER_DEF
 #define _EPD_TOUCH_MANAGER_DEF
 #include "epd_driver.h"
+#include "TouchCalibration.h"
 
 enum TouchRotation
 {
@@ -17,16 +18,27 @@ public:
     uint32_t touch_height = 0;
 
     TouchRotation rotation = TOUCH_ROT_LANDSCAPE;
+
+    TouchCalibration *calibration = nullptr;
+
     void (*handler)(UIPoint) = nullptr;
+    
     void setTouchDimension(uint32_t width, uint32_t height)
     {
         this->touch_width = width;
         this->touch_height = height;
     }
+
     void setTouchHandler(void (*handler)(UIPoint))
     {
         this->handler = handler;
     }
+
+    void setTouchCalibration(TouchCalibration *calibration)
+    {
+        this->calibration = calibration;
+    }
+
     void setRotation(TouchRotation rotation)
     {
         this->rotation = rotation;
