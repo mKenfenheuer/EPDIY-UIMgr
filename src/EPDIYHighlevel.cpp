@@ -129,5 +129,5 @@ void EPDIYHighlevel::fillRect(UIPoint point, int width, int height, int c)
 }
 
 void EPDIYHighlevel::drawLine(UIPoint start, UIPoint end, int c) {
-    epd_draw_line(start.getX(), start.gety(), end.getX(), end.gety(), c, fb);
+    epd_draw_line(start.getX(), start.getY(), end.getX(), end.getY(), c, fb);
 }
