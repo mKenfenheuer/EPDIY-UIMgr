@@ -43,10 +43,8 @@ public:
         display->drawLine(UIPoint(location.getX(), location.getY()), UIPoint(location.getX() + display->width(), location.getY()), 0);
         display->drawLine(UIPoint(location.getX(), location.getY() + 1), UIPoint(location.getX() + display->width(), location.getY() + 1), 0);
 
-        display->setFont(&OpenSans12B);
-        display->drawTextLeftAligned(value.display_name.c_str(), UIPoint(location.getX() + 10, location.getY() + 57), 0);
-        display->setFont(&OpenSans16B);
-        display->drawTextRightAligned((value.state + " " + value.unit_of_measurement).c_str(), UIPoint(location.getX() + display->width() - 10 - 5, location.getY() + 57), 0);
+        display->drawTextLeftAligned(sensorName.c_str(), UIPoint(location.getX() + 10, location.getY() + 57), 0);
+        display->drawTextRightAligned(sensorValue.c_str(), UIPoint(location.getX() + display->width() - 10 - 5, location.getY() + 57), 0);
 
         display->drawLine(UIPoint(location.getX(), location.getY() + 93), UIPoint(location.getX() + display->width(), location.getY() + 93), 0);
         display->drawLine(UIPoint(location.getX(), location.getY() + 94), UIPoint(location.getX() + display->width(), location.getY() + 94), 0);
