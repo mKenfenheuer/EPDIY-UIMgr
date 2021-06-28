@@ -12,6 +12,8 @@ private:
     bool state = false;
     int display_width = 26 * 2 + 60;
     int display_height = 26 * 2 + 31;
+    int swXOff = 0;
+    int swYOff = 0;
     String switchName;
     
 
@@ -26,9 +28,6 @@ public:
 
     bool handleTouch(UIPoint point) override
     {
-        int swXOff = display->width() - display_width - 15;
-        int swYOff = -display_height / 2 + 93 / 2;
-
         printf("Check Touch\n");
         if (point.getX() - (location.getX() + swXOff) >= 0 &&
             point.getX() - (location.getX() + swXOff) <= display_width)
@@ -66,9 +65,8 @@ public:
 
     void drawUI(DisplayHighlevel *display) override
     {
-
-        int swXOff = display->width() - display_width - 15;
-        int swYOff = -display_height / 2 + 93 / 2;
+        swXOff = display->width() - display_width - 15;
+        swYOff = -display_height / 2 + 93 / 2;
 
         Serial.printf("Drawing at: %ld,%ld\n", location.getX(), location.getY());
 
