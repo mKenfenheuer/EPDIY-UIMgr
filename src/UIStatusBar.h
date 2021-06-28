@@ -25,6 +25,10 @@ public:
     }
     ~UIStatusBar() {}
 
+    void setLocation(UIPoint location){
+        this->location = location
+    }
+
     void registerWithManager(UIManager *manager)
     {
         if(this->manager == nullptr)

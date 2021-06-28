@@ -32,6 +32,17 @@ public:
         sensorName = text;
     }
 
+    void setLocation(UIPoint location){
+        this->location = location
+    }
+
+    void registerWithManager(UIManager *manager)
+    {
+        if(this->manager == nullptr)
+            this->manager = manager;
+        manager->registerElement((UIElement *)this);
+    }
+
     void setSensorValue(String text)
     {
         sensorValue = text;

@@ -14,8 +14,7 @@ private:
     int display_height = 26 * 2 + 31;
     int swXOff = 0;
     int swYOff = 0;
-    String switchName;
-    
+    String switchName;   
 
 public:
     UIHomeAssistantSwitch(UIManager *manager, UIPoint location)
@@ -26,6 +25,17 @@ public:
     }
     UIHomeAssistantSwitch() {}
     ~UIHomeAssistantSwitch() {}
+
+    void setLocation(UIPoint location){
+        this->location = location
+    }
+
+    void registerWithManager(UIManager *manager)
+    {
+        if(this->manager == nullptr)
+            this->manager = manager;
+        manager->registerElement((UIElement *)this);
+    }
 
     bool handleTouch(UIPoint point) override
     {
@@ -48,8 +58,7 @@ public:
         return false;
     }
 
-    bool
-    getState()
+    bool getState()
     {
         return state;
     }
@@ -61,7 +70,7 @@ public:
 
     void setSwitchName(String name)
     {
-        switchName = name;
+        this->switchName = name;
     }
 
     void drawUI(DisplayHighlevel *display) override
