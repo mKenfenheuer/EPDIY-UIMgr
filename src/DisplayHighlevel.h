@@ -8,6 +8,10 @@ class DisplayHighlevel
 private:
     /* data */
 public:
+    bool display_initialized = false;
+    bool initialized(){
+        return display_initialized;
+    }
     virtual void wakeDisplay();
     virtual void sleepDisplay();
     virtual void updateDisplay();

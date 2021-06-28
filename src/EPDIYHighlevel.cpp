@@ -39,6 +39,7 @@ EPDIYHighlevel::EPDIYHighlevel(EpdInitOptions options , EpdRotation orientation,
     hl = epd_hl_init(waveform);
     epd_set_rotation(orientation);
     fb = epd_hl_get_framebuffer(&hl);
+    initialized = true;
 }
 
 void EPDIYHighlevel::epd_full_refresh()
