@@ -56,23 +56,23 @@ public:
         switch (rotation)
         {
         case TOUCH_ROT_LANDSCAPE:
-            x = x;
-            y = touch_height - y;
+            x = point.getX();
+            y = touch_height - point.getY();
             break;
 
         case TOUCH_ROT_PORTRAIT:
-            x = touch_height - y;
-            y = touch_width - x;
+            x = touch_height - point.getY();
+            y = touch_width - point.getX();
             break;
 
         case TOUCH_ROT_INVERTED_PORTRAIT:
-            x = x;
-            y = y;
+            x = point.getY();
+            y = point.getX();
             break;
 
         case TOUCH_ROT_INVERTED_LANDSCAPE:
-            x = touch_width - x;
-            y = y;
+            x = touch_width - point.getX();
+            y = point.getY();
             break;
         default:
             break;

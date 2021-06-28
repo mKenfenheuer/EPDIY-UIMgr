@@ -39,8 +39,7 @@ void L58Touch::loop()
             {
                 if (l58_last_touch_event + 200 < millis())
                 {
-                    printf("Touch: X:%d Y:%d\n", x, y);
-                    printf("Calling touch handler\n");
+                    printf("Touch: X:%d Y:%d\n", point.getX(), point.getY());
                     handler(point);
                 }
             }
