@@ -23,6 +23,11 @@ public:
     UIStatusBar() {}
     ~UIStatusBar() {}
 
+    void registerWithManager(UIManager *manager)
+    {
+        manager->registerElement((UIElement *)this);
+    }
+
     bool handleTouch(UIPoint point) override
     {
         return false;
