@@ -20,7 +20,7 @@ private:
 
 public:
     EPDIYHighlevel(EpdInitOptions options , EpdRotation orientation, const EpdWaveform *waveform = EPD_BUILTIN_WAVEFORM);
-    void setFont(EpdFont *font);
+    void setFont(const EpdFont *font);
     void wakeDisplay() override;
     void sleepDisplay() override;
     void updateDisplay() override;

@@ -46,7 +46,7 @@ void EPDIYHighlevel::epd_full_refresh()
     epd_draw_base(epd_full_screen(), fb, epd_full_screen(), (EpdDrawMode)(MODE_PACKING_2PPB | PREVIOUSLY_WHITE | MODE_GC16), 25, NULL, (EpdWaveform *)EPD_BUILTIN_WAVEFORM);
 }
 
-void EPDIYHighlevel::setFont(EpdFont *font)
+void EPDIYHighlevel::setFont(const EpdFont *font)
 {
     this->font = font;
 }
