@@ -60,7 +60,6 @@ void EPDIYHighlevel::drawTextLeftAligned(const char *text, UIPoint point, int c)
     font_props.bg_color = 255 - c;
     int x = point.getX();
     int y = point.getY();
-    Serial.printf("Printing text LeftAligned: %s at: %d,%d\n", text, point.getX(), point.getY());
     epd_write_string(font, text, &x, &y, fb, &font_props);
 }
 
@@ -72,7 +71,6 @@ void EPDIYHighlevel::drawTextRightAligned(const char *text, UIPoint point, int c
     font_props.bg_color = 255 - c;
     int x = point.getX();
     int y = point.getY();
-    Serial.printf("Printing text RightAligned: %s at: %d,%d\n", text, point.getX(), point.getY());
     epd_write_string(font, text, &x, &y, fb, &font_props);
 }
 
@@ -84,7 +82,6 @@ void EPDIYHighlevel::drawTextCenterAligned(const char *text, UIPoint point, int 
     font_props.bg_color = 255 - c;
     int x = point.getX();
     int y = point.getY();
-    Serial.printf("Printing text CenterAligned: %s at: %d,%d\n", text, point.getX(), point.getY());
     epd_write_string(font, text, &x, &y, fb, &font_props);
 }
 
@@ -92,7 +89,6 @@ void EPDIYHighlevel::drawCircle(UIPoint point, int r, int c)
 {
     int x = point.getX();
     int y = point.getY();
-    Serial.printf("Drawing circle with r=%d at: %d,%d\n", r, point.getX(), point.getY());
     epd_draw_circle(x, y, r, c, fb);
 }
 
@@ -100,7 +96,6 @@ void EPDIYHighlevel::fillCircle(UIPoint point, int r, int c)
 {
     int x = point.getX();
     int y = point.getY();
-    Serial.printf("Filling circle with r=%d at: %d,%d\n", r, point.getX(), point.getY());
     epd_fill_circle(x, y, r, c, fb);
 }
 
@@ -112,7 +107,6 @@ void EPDIYHighlevel::drawRect(UIPoint point, int width, int height, int c)
     rect.width = width;
     rect.height = height;
 
-    Serial.printf("Drawing rect with w=%d, h=%d at: %d,%d\n", width, height, point.getX(), point.getY());
     epd_draw_rect(rect, c, fb);
 }
 
@@ -124,7 +118,6 @@ void EPDIYHighlevel::fillRect(UIPoint point, int width, int height, int c)
     rect.width = width;
     rect.height = height;
 
-    Serial.printf("Filling rect with w=%d, h=%d at: %d,%d\n", width, height, point.getX(), point.getY());
     epd_fill_rect(rect, c, fb);
 }
 

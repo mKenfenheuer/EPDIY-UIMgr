@@ -22,7 +22,7 @@ public:
     TouchCalibration *calibration = nullptr;
 
     void (*handler)(UIPoint) = nullptr;
-    
+
     void setTouchDimension(uint32_t width, uint32_t height)
     {
         this->touch_width = width;
@@ -66,8 +66,8 @@ public:
             break;
 
         case TOUCH_ROT_INVERTED_PORTRAIT:
-            x = y;
-            y = x;
+            x = x;
+            y = y;
             break;
 
         case TOUCH_ROT_INVERTED_LANDSCAPE:

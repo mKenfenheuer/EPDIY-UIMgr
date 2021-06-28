@@ -14,7 +14,7 @@ private:
     int display_height = 26 * 2 + 31;
     int swXOff = 0;
     int swYOff = 0;
-    String switchName;   
+    String switchName;
 
 public:
     UIHomeAssistantSwitch(UIManager *manager, UIPoint location)
@@ -26,31 +26,29 @@ public:
     UIHomeAssistantSwitch() {}
     ~UIHomeAssistantSwitch() {}
 
-    void setLocation(UIPoint location){
+    void setLocation(UIPoint location)
+    {
         this->location = location;
     }
 
     void registerWithManager(UIManager *manager)
     {
-        if(this->manager == nullptr)
+        if (this->manager == nullptr)
             this->manager = manager;
         manager->registerElement((UIElement *)this);
     }
 
     bool handleTouch(UIPoint point) override
     {
-        printf("Check Touch\n");
         if (point.getX() - (location.getX() + swXOff) >= 0 &&
             point.getX() - (location.getX() + swXOff) <= display_width)
 
             if (point.getY() - (location.getY() + swYOff) >= 0 &&
                 point.getY() - (location.getY() + swYOff) <= display_height)
             {
-                printf("Touch matched.\n");
                 state = !state;
                 if (handler != nullptr)
                 {
-                    printf("Calling Handler\n");
                     handler(this);
                 }
                 return true;
@@ -75,12 +73,10 @@ public:
 
     void drawUI(DisplayHighlevel *display) override
     {
-        swXOff = display->width() - display_width - 15;
-        swYOff = -display_height / 2 + 93 / 2;
+        swXOff = display->width() - display_width - 5;
+        swYOff = 93 / 2;
 
-        Serial.printf("Drawing at: %ld,%ld\n", location.getX(), location.getY());
-
-        UIPoint leftCenter = UIPoint(swXOff + location.getX() + 26, swYOff + location.getY() + 26);
+        UIPoint leftCenter = UIPoint(swXOff + location.getX(), swYOff + location.getY());
 
         display->fillCircle(UIPoint(leftCenter.getX(), leftCenter.getY()), 15, 0);
         display->fillCircle(UIPoint(leftCenter.getX() + 60, leftCenter.getY()), 15, 0);
