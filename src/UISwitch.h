@@ -49,6 +49,17 @@ public:
         return state;
     }
 
+    void setLocation(UIPoint location){
+        this->location = location
+    }
+
+    void registerWithManager(UIManager *manager)
+    {
+        if(this->manager == nullptr)
+            this->manager = manager;
+        manager->registerElement((UIElement *)this);
+    }
+
     void setState(bool state)
     {
         this->state = state;
