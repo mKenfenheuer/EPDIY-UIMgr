@@ -19,6 +19,7 @@ public:
         this->location = location;
         this->manager->registerElement((UIElement *)this);
     }
+    UISwitch() {}
     ~UISwitch() {}
 
     bool handleTouch(UIPoint point) override
