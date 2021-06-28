@@ -20,6 +20,7 @@ public:
         this->location = location;
         this->manager->registerElement((UIElement *)this);
     }
+    UIStatusBar() {}
     ~UIStatusBar() {}
 
     bool handleTouch(UIPoint point) override
