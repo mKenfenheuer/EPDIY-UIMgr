@@ -20,11 +20,15 @@ public:
         this->location = location;
         this->manager->registerElement((UIElement *)this);
     }
-    UIStatusBar() {}
+    UIStatusBar() {
+        location = UIPoint(0, 0);
+    }
     ~UIStatusBar() {}
 
     void registerWithManager(UIManager *manager)
     {
+        if(this->manager == nullptr)
+            this->manager = manager;
         manager->registerElement((UIElement *)this);
     }
 
