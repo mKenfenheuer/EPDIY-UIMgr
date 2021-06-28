@@ -32,6 +32,9 @@ public:
     void fillCircle(UIPoint point, int r, int c) override;
     void drawRect(UIPoint point, int width, int height, int c) override;
     void fillRect(UIPoint point, int width, int height, int c) override;
+    virtual void drawLine(UIPoint start, UIPoint end, int c) override;
+    virtual int width() override;
+    virtual int height() override;
 };
 
 #endif

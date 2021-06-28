@@ -20,6 +20,16 @@ void EPDIYHighlevel::clearDisplay()
     epd_hl_set_all_white(&hl); 
 }
 
+int EPDIYHighlevel::width() 
+{
+    return epd_rotated_display_width(); 
+}
+
+int EPDIYHighlevel::height() 
+{
+    epd_rotated_display_height(); 
+}
+
 EPDIYHighlevel::EPDIYHighlevel(EpdInitOptions options , EpdRotation orientation, const EpdWaveform *waveform)
 {
     this->waveform = waveform;
@@ -115,4 +125,8 @@ void EPDIYHighlevel::fillRect(UIPoint point, int width, int height, int c)
 
     Serial.printf("Filling rect with w=%d, h=%d at: %d,%d\n", width, height, point.getX(), point.getY());
     epd_fill_rect(rect, c, fb);
+}
+
+void EPDIYHighlevel::drawLine(UIPoint start, UIPoint end, int c) {
+    epd_draw_line(start.getX(), start.gety(), end.getX(), end.gety(), c, fb);
 }

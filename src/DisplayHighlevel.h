@@ -19,6 +19,9 @@ public:
     virtual void fillCircle(UIPoint point, int r, int c);
     virtual void drawRect(UIPoint point, int width, int height, int c);
     virtual void fillRect(UIPoint point, int width, int height, int c);
+    virtual void drawLine(UIPoint start, UIPoint end, int c);
+    virtual int width();
+    virtual int height();
 };
 
 #endif
