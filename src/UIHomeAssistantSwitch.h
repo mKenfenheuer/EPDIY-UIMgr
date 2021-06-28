@@ -55,7 +55,7 @@ public:
 
     void setState(bool state)
     {
-        this->switch->setState(state);
+        this->state = state;
     }
 
     void setSwitchName(String name)
